@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-int convert(long n);
+int convert(long n); //This is  a Function Which will return int value 
 int main()
 {
     int ch,rem,bin=0,dec=0,oct=0,i=0,o=1,m;
