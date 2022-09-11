@@ -1,19 +1,27 @@
 #include<stdio.h>
 #include<math.h>
-int convert(long n); //This is  a Function Which will return int value 
+int binarytooctal(long n);
+int octaltobinary(long n);
 int main()
 {
-    int ch,rem,bin=0,dec=0,oct=0,i=0,o=1,m;
+    int ch,rem,bin=0,dec=0,oct=0,i=0,o=1;
     long int n;
+    char opt;
     printf("\n...........................\n");
     printf("WELCOME TO NUMBER CONVERTER\n");
     printf("............................\n\n");
-    printf("Make Your Choice:-\n1. Binary To Decimal Converter\n2. Decimal To Binary Converter\n3. Binary To Octal Converter\n4. Decimal to Octal converter\n5. Octal to Decimal Converter\n");
-    printf("Enter Your Choice: ");
-    scanf("%d",&ch);
 
-    if (ch==1)
-    {
+    printf("Enter Which Converter You Want To Use\n A. Binary Converter\nB. Octal Converter\nC. Decimal Converter\nD. Hexadecimal Converter");
+    scanf("%c",&opt);
+
+    if(opt=='A'||opt=='a'){
+        printf("WELCOME TO BINARY CONVERTER\n");
+        printf(".............................\n\n");
+
+        printf("Different Binary Converter...\n1. Binary To Decimal\n2. Binary To Octal\n\n");
+        printf("Enter Your Choice:- ");
+        scanf("%d",&ch);
+        if (ch==1){
         printf("You Choose Binary To Decimal....\n");
         printf("Enter Binary Number: ");
         scanf("%ld",&n);
@@ -25,23 +33,57 @@ int main()
             ++i;
         } 
         printf("Answer is %d Decimal",dec);
-    }else if(ch==2){
-        printf("You Choose Decimal To Binary.....\n\n ");
+        }else if(ch==2){
+        printf("You Choose Binary To Octal....\n");
+        printf("Answer is %d Octal",binarytooctal(n));
+        }else{
+        printf("Enter Valid Value !!");
+        }
+    }else if(opt=='B'||opt='b'){
+        printf("WELCOME TO OCTAL CONVERTER\n");
+        printf("............................\n\n");
+
+        printf("Different Octal Converter...\n1. Octal To Decimal\n2. Octal To Binary\n\n");
+        printf("Enter Your Choice:- ");
+        scanf("%d",&ch);
+        if(ch==1){
+            printf("You Choose Octal To Decimal....\n");
+        printf("Enter Octal Number: ");
+        scanf("%d",&n);
+        while(n!=0){
+            rem=n%10;
+            dec+=rem*pow(8,i++);
+            n/=10;
+        }
+          printf("Answer is %d Decimal",dec);
+        }else if(ch==2){
+            printf("you choose Octal To Binary....\n");
+        printf("Answer is %d Binary",octaltobinary(n));
+        }else{
+            printf("Enter Valid Value !!");
+        }
+
+    }else if(opt=='C'||opt=='c'){
+        printf("WELCOME TO DECIMAL CONVERTER\n");
+        printf(".............................\n\n");
+        printf("Different Decimal Converter...\n1. Decimal to Binary\n2. Decimal To Octal\n\n");
+        printf("Enter Your Choice:- ");
+        scanf("%d",&ch);
+
+        if(ch==1){
+            printf("You Choose Decimal To Binary.....\n\n ");
         printf("Enter Decimal Number: ");        
-        scanf("%d",&m);
-        while (m!=0)
+        scanf("%d",&n);
+        while (n!=0)
         {
-            rem=m%2;
-            m/=2;
+            rem=n%2;
+            n/=2;
             bin+=rem*o;
             o*=10;
         }
         printf("Answer in Binary is %d",bin);
-    }else if(ch==3){
-        printf("You Choose Binary To Octal....\n");
-        printf("Answer is %d Octal",convert(n));
-    }else if(ch==4){
-        int octal[100];//This is oct num Which will contain atleast 100 digits
+        }else if(ch==2){
+            int octal[100];//This is oct num Which will contain atleast 100 digits
         printf("You Choose Decimal To Octal....\n");
         printf("Enter Decimal Number: ");
         scanf("%ld",&n);
@@ -54,29 +96,19 @@ int main()
             oct=oct*10+octal[j];
         }
         printf("Answer is %d Octal",oct);
-    }else if(ch==5){
-        printf("You Choose Octal To Decimal....\n");
-        printf("Enter Your Number: ");
-        scanf("%d",&n);
-        while(n!=0){
-            rem=n%10;
-            dec+=rem*pow(8,i++);
-            n/=10;
+        }esle{
+            printf("Enter Valid Value !!");
         }
-          printf("Answer is %d Decimal",dec);
     }else{
-        printf("Enter Valid Command!!");
+        printf("Enter Valid Command !!");
     }
 return 0;
 }
 
+/* ALL CREATED FUNCTION WILL BE DEFINED HERE */ 
 
 
-
-//Here We made function to calculate binary to octal
-//we need to convert binary into decimal 7 then decimal to octal
-
-int convert(long n){
+int binarytooctal(long n){
     int oct=0,dec=0,i=0,rem;
         printf("Enter Binary Number: ");
         scanf("%ld",&n);
@@ -94,4 +126,25 @@ int convert(long n){
         i *= 10;
     }
     return oct;
+}
+
+
+int octaltobinary(long n){
+    int oct=0,dec=0,i=0,rem,bin=0;
+    printf("Enter Octal Number: ");
+    scanf("%d",&n);    
+     while(n!=0){
+            rem=n%10;
+            dec+=rem*pow(8,i++);
+            n/=10;
+        }
+        i=1;
+        while (dec!=0)
+        {
+            rem=dec%2;
+            dec/=2;
+            bin+=rem*i;
+            i*=10;
+        }
+        return bin;
 }
