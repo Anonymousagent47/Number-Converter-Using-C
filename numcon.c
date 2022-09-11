@@ -11,7 +11,8 @@ int main()
     printf("WELCOME TO NUMBER CONVERTER\n");
     printf("............................\n\n");
 
-    printf("Enter Which Converter You Want To Use\n A. Binary Converter\nB. Octal Converter\nC. Decimal Converter\nD. Hexadecimal Converter");
+    printf("Which Converter You Want To Use\nA. Binary Converter\nB. Octal Converter\nC. Decimal Converter\nD. Hexadecimal Converter\n\n");
+    printf("Enter Choice:- ");
     scanf("%c",&opt);
 
     if(opt=='A'||opt=='a'){
@@ -39,7 +40,7 @@ int main()
         }else{
         printf("Enter Valid Value !!");
         }
-    }else if(opt=='B'||opt='b'){
+    }else if(opt=='B'||opt=='b'){
         printf("WELCOME TO OCTAL CONVERTER\n");
         printf("............................\n\n");
 
@@ -96,11 +97,14 @@ int main()
             oct=oct*10+octal[j];
         }
         printf("Answer is %d Octal",oct);
-        }esle{
+        }else{
             printf("Enter Valid Value !!");
         }
+    }else if(opt=='D'||opt=='d'){
+        printf("Hexadecimal Converter Will be Uploaded Soon...\n");
+        printf("Keep Upadated On Github....");
     }else{
-        printf("Enter Valid Command !!");
+        printf("Enter Valid Value !!");
     }
 return 0;
 }
