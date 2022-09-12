@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<math.h>
-#define MAX 100
 int binarytooctal(long n);
 int octaltobinary(long n);
 int main()
@@ -108,7 +107,7 @@ int main()
         printf("\nEnter Your Choice:- ");
         scanf("%d",&ch);
         if (ch==1){
-        char binarynum[MAX], hexa[MAX]; //Here binarynum variable declares the binary value
+        char binarynum[1000], hexa[100]; //Here binarynum variable declares the binary value
         long int i = 0;
  
     printf("Enter Hexadecimal Number:- ");
