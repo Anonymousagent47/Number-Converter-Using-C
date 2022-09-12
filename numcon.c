@@ -113,7 +113,8 @@ int main()
     printf("Enter Hexadecimal Number:- ");
     scanf("%s", hexa);
      printf("Answer is "); //so according to upper comment we don't need to address binarynum variable here
-    while (hexa[i])
+   //Answer Will be automatically show in binary
+            while (hexa[i])
     {
         switch (hexa[i])
         {
